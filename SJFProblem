@@ -4,7 +4,8 @@
 using namespace std;
 int main()
 {
-	int n,i,j,k,temp,temp2,total,count=0,avgW=0,avgT=0;
+	int n,i,j,k,temp,temp2,total,count=0,sum=0;
+	float avgW=0,avgT=0;
 	cout<<"////////////////////////////////////////////////////////////////////////////////////////////////////////////"<<endl<<endl;
 	cout<<"\t\t\t\t SHORTEST JOB FIRST SCHEDULING POLICY"<<endl;
 	cout<<"\t\t\t       Made By - Rahul Aildasani (K17JP-11700865)"<<endl<<endl;
@@ -15,14 +16,14 @@ int main()
 	int wt[n+1]={0};
 	int tt[n+1]={0};
 	int r[n]={0};
-	cout<<"\tARRIVAL TIME :-\n";
+	cout<<"\tENTER ARRIVAL TIME :-\n";
 	for(i=0;i<n;i++)
 	{
 		cout<<"\tP"<<i+1<<"\t";
 		cin>>at[i];
 		p[i]=i+1;
 	}
-	cout<<"\tBURST TIME :-\n";
+	cout<<"\tENTER BURST TIME :-\n";
 		for(i=0;i<n;i++)
 	{
 		cout<<"\tP"<<i+1<<"\t";
@@ -54,7 +55,7 @@ int main()
 		Sleep(1500);
 		if(at[i]==0)
 		{
-			cout<<"\tP"<<p[i]<<"\twon't be executed\n";
+			cout<<"\t"<<p[i]<<"\twon't be executed\n";
 		}
 		else
 		{
@@ -73,8 +74,6 @@ int main()
 		Sleep(2000);
 		cout<<"P"<<p[i]<<"\t\t"<<at[i]<<"\t\t"<<bt[i]<<endl<<endl;;
 	}
-	
-	
 	for(i=0;i<n;i++)
 	{
 		if(at[i]!=0)
@@ -127,13 +126,19 @@ int main()
 		}
 		
 	}
-	cout<<"***********************************************************************************"<<endl;
+	cout<<"***********************************************************************************"<<endl<<endl;
 	cout<<"\tAVERAGE WAITING TIME :- ";
 	cout<<(avgW*1.0)/(n-k)<<endl<<endl;
-	cout<<"***********************************************************************************"<<endl;
-	
+	cout<<"***********************************************************************************"<<endl<<endl;
 	cout<<"\tAVERAGE TURN AROUND TIME :- ";
-	cout<<(avgT*1.0/(n-k))<<endl;
+	cout<<(avgT*1.0/(n-k))<<endl<<endl;
+	cout<<"***********************************************************************************"<<endl<<endl;
+	cout<<"TOTAL TIME TAKEN BY CPU TO COMPLETE ALL JOBS :- ";
+	for(i=0;i<n;i++)
+	{
+		sum=sum+bt[i];	
+	}
+	cout<<sum<<endl<<endl;
 	cout<<"***********************************************************************************"<<endl;
 	return 0;
 }
